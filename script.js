@@ -35,4 +35,18 @@ async function getWeatherData(city) {
       return;
     }
 
-    
+    var weatherData = await getWeatherData(cityInput);
+
+    if (weatherData) {
+      updateWeatherUI(weatherData);
+      //the following var and query will add the searched city to the search history for easy reference
+      var searchHistoryList = document.getElementById('searchHistory');
+      var cityButton = document.createElement('button');
+      cityButton.className = 'btn btn-link w-100';
+      cityButton.innerText = weatherData.name;
+      cityButton.addEventListener('click', async () => {
+        updateWeatherUI(await getWeatherData(weatherData.name));
+      });
+      searchHistoryList.appendChild(cityButton);
+    }
+  });
