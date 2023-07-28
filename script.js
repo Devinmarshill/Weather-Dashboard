@@ -1,5 +1,5 @@
 async function getWeatherData(city) {
-    var apiKey = '8a7948fcc5bd289d5323d2ddab19f470';
+    var apiKey = 'c2fa0fc6a0b2774b24ca5dcd85435f8e';
     var url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
     try {
